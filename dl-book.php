@@ -8,7 +8,7 @@ $bookId = $_GET['id'];
 $chapterApiUrl = "https://novel.snssdk.com/api/novel/book/directory/list/v1?book_id=$bookId";
 $chapterApiResponse = file_get_contents($chapterApiUrl);
 if (strlen($bookId) !== 19) {
-    echo "这他妈不是正常的bookid，触发:key作废";
+    echo "这他妈不是正常的bookid";
     exit();
 }
 if ($chapterApiResponse === false) {
@@ -51,5 +51,4 @@ $fileContents = str_replace('&#34;', '"', $fileContents);
 file_put_contents($txtFile, $fileContents);
 fclose($mergedContent);
 echo "下载成功!，文件名 $book_name.txt.";
-exit();
 ?>
